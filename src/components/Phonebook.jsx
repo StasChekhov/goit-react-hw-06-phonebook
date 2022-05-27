@@ -13,12 +13,19 @@ export default function Phonebook() {
 
  const contacts = useSelector((state) => state.myValue.contacts.items);
 
- const handleSubmit = (e) => {
-  e.preventDefault();
+ //  const onChange = (e) => {
+ //   const { name, value } = e.currentTarget;
+ //   // eslint-disable-next-line default-case
+ //   switch (name) {
+ //    case "name":
+ //     setName(value);
+ //     break;
+ //    case "number":
+ //     setNumber(value);
+ //     break;
+ //   }
+ //  };
 
-  setName("");
-  setNumber("");
- };
  const onSaveContact = () => {
   const contact = {
    name,
@@ -33,6 +40,13 @@ export default function Phonebook() {
    return alert(`Contact ${name} already exists`);
   }
   dispatch(add({ id: nanoid(), name, number }));
+ };
+
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  onSaveContact();
+  setName("");
+  setNumber("");
  };
 
  return (
@@ -62,7 +76,7 @@ export default function Phonebook() {
       title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
       required
      />
-     <button onClick={onSaveContact} type="submit" className={s.button}>
+     <button type="submit" className={s.button}>
       Add contact
      </button>
     </div>

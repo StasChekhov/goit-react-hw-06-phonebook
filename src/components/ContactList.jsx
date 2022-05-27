@@ -1,10 +1,19 @@
 import ContactItems from "./ContactItems";
 import PropTypes from "prop-types";
+import { useMemo } from "react";
+import { contacts, filter } from "redux/clickSlice";
 
-const ContactList = ({ listContacts }) => {
+const ContactList = () => {
+ const filteredContacts = useMemo(
+  () =>
+   filter
+    ? contacts.filter((contact) => contact.name.includes(filter))
+    : contacts,
+  [filter, contacts]
+ );
  return (
   <ul>
-   {listContacts.map((e) => (
+   {filteredContacts.map((e) => (
     <li key={e.id}>
      <ContactItems id={e.id} name={e.name} number={e.number} />
     </li>

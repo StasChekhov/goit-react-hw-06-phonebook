@@ -1,15 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// export const plus = createAction("myValue/plus");
-
-// const minus = createAction("myValue/minus");
-
-// const myReducer = createReducer(10, {
-//  [plus]: (state, action) => {
-//   return state + action.payload;
-//  },
-// });
-
 export const clickSlice = createSlice({
  name: "myValue",
  initialState: {
@@ -37,3 +27,7 @@ export const clickSlice = createSlice({
 export const { add } = clickSlice.actions;
 export const { remove } = clickSlice.actions;
 export const { filterContacts } = clickSlice.actions;
+
+//Selectors
+export const contacts = (state) => state.myValue.contacts.items;
+export const filter = (state) => state.myValue.contacts.filter;

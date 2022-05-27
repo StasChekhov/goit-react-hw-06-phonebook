@@ -1,24 +1,11 @@
-import { useMemo } from "react";
 import s from "./components/Phonebook.module.css";
-
 import Section from "./components/Section";
 import Phonebook from "./components/Phonebook";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
-import { useSelector } from "react-redux";
+import { contacts } from "redux/clickSlice";
 
 export default function App() {
- const contacts = useSelector((state) => state.myValue.contacts.items);
- const filter = useSelector((state) => state.myValue.contacts.filter);
-
- const filteredContacts = useMemo(
-  () =>
-   filter
-    ? contacts.filter((contact) => contact.name.includes(filter))
-    : contacts,
-  [filter, contacts]
- );
-
  return (
   <div>
    <Section title="Phonebook">
@@ -28,7 +15,7 @@ export default function App() {
    </Section>
    <Section title="Contacts">
     {contacts.length < 1 ? <p>Your contacts list is empty</p> : <Filter />}
-    <ContactList listContacts={filteredContacts} />
+    <ContactList />
    </Section>
   </div>
  );
