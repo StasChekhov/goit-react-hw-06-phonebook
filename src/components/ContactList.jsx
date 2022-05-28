@@ -1,9 +1,12 @@
 import ContactItems from "./ContactItems";
 import PropTypes from "prop-types";
 import { useMemo } from "react";
-import { contacts, filter } from "redux/clickSlice";
+import { getContacts, getFilter } from "redux/clickSlice";
+import { useSelector } from "react-redux";
 
 const ContactList = () => {
+ const contacts = useSelector(getContacts);
+ const filter = useSelector(getFilter);
  const filteredContacts = useMemo(
   () =>
    filter

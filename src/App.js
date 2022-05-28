@@ -3,7 +3,7 @@ import Section from "./components/Section";
 import Phonebook from "./components/Phonebook";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
-import { contacts } from "redux/clickSlice";
+import { getContacts } from "redux/clickSlice";
 
 export default function App() {
  return (
@@ -14,7 +14,7 @@ export default function App() {
     </div>
    </Section>
    <Section title="Contacts">
-    {contacts.length < 1 ? <p>Your contacts list is empty</p> : <Filter />}
+    {getContacts.length < 1 ? <p>Your contacts list is empty</p> : <Filter />}
     <ContactList />
    </Section>
   </div>

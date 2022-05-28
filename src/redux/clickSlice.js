@@ -29,5 +29,5 @@ export const { remove } = clickSlice.actions;
 export const { filterContacts } = clickSlice.actions;
 
 //Selectors
-export const contacts = (state) => state.myValue.contacts.items;
-export const filter = (state) => state.myValue.contacts.filter;
+export const getContacts = (state) => state.myValue.contacts.items;
+export const getFilter = (state) => state.myValue.contacts.filter;
