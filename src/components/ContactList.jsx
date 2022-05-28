@@ -1,5 +1,5 @@
 import ContactItems from "./ContactItems";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { useMemo } from "react";
 import { getContacts, getFilter } from "redux/clickSlice";
 import { useSelector } from "react-redux";
